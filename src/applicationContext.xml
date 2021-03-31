@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.0.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd ">
+
+    <!-- 配置扫描包的路径(扫描指定包下的注解，让注解生效) -->
+    <context:component-scan base-package="com.neusoft"></context:component-scan>
+
+    <!-- 配置数据源(使用DBCP连接池连接数据库)，数据源对象交给IOC创建并管理 -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/hsjc_xt?characterEncoding=utf8"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value=""></property>
+        <!-- 配置连接池参数信息 -->
+        <!-- 最大连接数(连接池可以容纳的连接对象数量) -->
+        <property name="maxActive" value="10"></property>
+        <!-- 最大等待数(如果连接池所有对象已经被占用，那么允许最多等待的连接数) -->
+        <property name="maxIdle" value="10"></property>
+        <!-- 最大等待时间(单位ms，等待时间超过指定时间后，直接抛出异常，程序终止) -->
+        <property name="maxWait" value="30000"></property>
+    </bean>
+
+    <!-- 配置会话工厂的对象，将会话工厂对象交给IOC容器管理 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 加载Mybatis配置文件，用于生成SQL会话工厂 -->
+        <property name="configLocation" value="classpath:sqlMapConfig.xml"></property>
+        <!-- 使用指定数据源，连接数据库 -->
+        <property name="dataSource" ref="dataSource"></property>
+
+    </bean>
+
+    <!-- 配置代理对象，通过生成指定SQLSession，并将代理对象交给IOC容器管理！！ -->
+    <!-- 注意：只要有了该配置，那么mapper包下的代理接口的代理对象就一定会被IOC管理！ -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 声明被代理的接口所在的包 -->
+        <property name="basePackage" value="com.neusoft.mapper"></property>
+        <!-- 利用会话工厂创建具体会话，并生成代理对象 -->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+    </bean>
+
+    <!-- 总结：以上三个配置的bean标签就是为了简化之前mybatis测试时为了获取代理对象的代码 -->
+    <!-- 也就是说，现在每一个mapper接口对应的代理对象一定会在IOC容器中生成 -->
+
+</beans>

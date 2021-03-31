@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!--引入pageHelper分页插件-->
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageHelper">
+			<!--设置分页插件的初始参数-->
+			<!--配置当前数据库信息(不同数据库分页查询的SQL语法不一样)-->
+			 <property name="dialect" value="mysql"></property>
+			<!--
+				分页合理化查询
+				  true:启用(如果当前页小于1，返回第1页数据，如果当前页大于总页数，返回最后一页数据)
+				  false:禁用(缺省值)(如果当前页小于1或者大于总页数，直接返回空集合)
+			-->
+			<property name="reasonable" value="true"></property>
+		</plugin>
+	</plugins>
+
+
+	<!--
+		由于Spring框架整合了Mybatis，所以数据源的配置无需再Mybatis中进行
+		利用数据源生成SQL会话等一系列操作，全都移交给Spring框架完成，
+		我们只需要在Spring配置文件中通过Bean标签来进行数据源和SQLSession的配置即可
+		Mybatis框架配置文件中只需声明批量加载包即可，即：mapper.xml文件所在的包
+	-->
+	<mappers>
+		<!-- 批量加载包 -->
+		<package name="com.neusoft.mapper"/>
+	</mappers>
+</configuration>
