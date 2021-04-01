@@ -6,6 +6,7 @@ public class Admin {
     private String account; //登录账号
     private String password;  //登录密码
 
+
     public int getId() {
         return id;
     }
@@ -29,4 +30,5 @@ public class Admin {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

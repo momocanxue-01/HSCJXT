@@ -77,12 +77,14 @@ public class AdminController {
         //如果以上判断都不成立，执行此处登录成功
         //为了后续画面中都能够展示出来用户的账号信息所以我们将账号存放到session作用域中
         //SpringMVC 默认装值都是使用request作用域
-        session.setAttribute("result", result);//使用session作用域
+        session.setAttribute("result",result);//使用session作用域
         model.addAttribute("result", result);
         return "login";
 
 
-
+        //执行到此，证明登录成功！开始进行鉴权操作！
+        //跳转到PermissionController中进行健全操作！
+        return "forward:../PermissionController/checkPermission";
 
         //从AdminController跳转到CustomerController中进行全查询并跳转首页
         //return "forward:../CustomerController/goIndex";

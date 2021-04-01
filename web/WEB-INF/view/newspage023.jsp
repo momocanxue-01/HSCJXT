@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 小安卓
@@ -105,11 +106,11 @@
                     <section class="panel">
                         <header class="panel-heading">
                             核酸检测
-                            <span class="tools pull-right">
-                                <a href="javascript:;" class="fa fa-chevron-down"></a>
-                                <a href="javascript:;" class="fa fa-times"></a>
-                            </span>
                         </header>
+                        <c:if test="1==1">
+                            <input type="button" value="tina">
+                        </c:if>
+
                         <div class="panel-body">
                             <div class="adv-table">
                                 <table  class="display table table-bordered table-striped" id="dynamic-table">
