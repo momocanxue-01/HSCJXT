@@ -107,10 +107,7 @@
                         <header class="panel-heading">
                             核酸检测
                         </header>
-                        <c:if test="1==1">
-                            <input type="button" value="tina">
-                        </c:if>
-
+                        
                         <div class="panel-body">
                             <div class="adv-table">
                                 <table  class="display table table-bordered table-striped" id="dynamic-table">
@@ -131,8 +128,19 @@
                                         <td class="center hidden-phone">长春市第一医院</td>
                                         <td>
                                             <button>
-                                                <a href="${pageContext.request.contextPath}/CustomerController/yuyueselect?id=${result.account}&name=长春市第一医院">预约</a>
+                                                <a href="${pageContext.request.contextPath}/CustomerController/yuyueselect?id=${adminId}&name=长春市第一医院">预约</a>
                                             </button>
+                                            <br>
+
+                                                <c:forEach items="${list}" var="permission" varStatus="i">
+                                                    <c:if test="${permission.name=='用户授权'}">
+                                                        <button>
+                                                            <a href="#">删除</a>
+                                                        </button>
+
+                                                    </c:if>
+                                                </c:forEach>
+
                                         </td>
                                     </tr>
                                     <tr class="gradeC">

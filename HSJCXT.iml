@@ -12,7 +12,24 @@
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
-      <configuration />
+      <configuration>
+        <fileset id="web application context" name="MVC application context" removed="true">
+          <file>file://$MODULE_DIR$/src/applicationContext.xml</file>
+        </fileset>
+        <fileset id="web dispatcherServlet servlet context" name="MVC dispatcherServlet servlet context" removed="true">
+          <file>file://$MODULE_DIR$/src/springmvc.xml</file>
+        </fileset>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/out/artifacts/HSJCXT_war_exploded/WEB-INF/classes/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/out/production/HSJCXT/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/HSJCXT_war_exploded/WEB-INF/classes/src/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/HSJCXT_war_exploded/WEB-INF/classes/springmvc.xml</file>
+          <file>file://$MODULE_DIR$/out/production/HSJCXT/springmvc.xml</file>
+          <file>file://$MODULE_DIR$/out/artifacts/HSJCXT_war_exploded/WEB-INF/classes/src/springmvc.xml</file>
+          <file>file://$MODULE_DIR$/src/springmvc.xml</file>
+        </fileset>
+      </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">

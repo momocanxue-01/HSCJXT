@@ -1,15 +1,20 @@
 package com.neusoft.controller;
 
 import com.neusoft.model.Admin;
+import com.neusoft.model.AdminPermission;
 import com.neusoft.model.Customer;
+import com.neusoft.model.Permission;
 import com.neusoft.service.AdminService;
+import com.neusoft.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/AdminController")
@@ -18,7 +23,6 @@ public class AdminController {
 
     @Autowired
     AdminService adminService;
-
 
     @RequestMapping("/goLogin")
     public String goLogin(){
@@ -53,17 +57,17 @@ public class AdminController {
         //2.2.格式校验
         //账号数字11位
         //密码数字11位
-        String accountReg = "[0-9]{11}"; //账号正则
-        String passwordReg = "[0-9]{11}";  //密码正则
-        if (!admin.getAccount().matches(accountReg)){
-            //账号格式错误
-            model.addAttribute("error","账号格式错误");
-            return "gologing";
-        }
-        if (!admin.getPassword().matches(passwordReg)){
-            model.addAttribute("error","密码格式错误");
-            return "gologing";
-        }
+//        String accountReg = "[0-9]{11}"; //账号正则
+//        String passwordReg = "[0-9]{11}";  //密码正则
+//        if (!admin.getAccount().matches(accountReg)){
+//            //账号格式错误
+//            model.addAttribute("error","账号格式错误");
+//            return "gologing";
+//        }
+//        if (!admin.getPassword().matches(passwordReg)){
+//            model.addAttribute("error","密码格式错误");
+//            return "gologing";
+//        }
         //2.3有效性校验
         //校验账号密码是否正确-->调用业务层方法
         Admin result = adminService.Login(admin);
@@ -79,12 +83,17 @@ public class AdminController {
         //SpringMVC 默认装值都是使用request作用域
         session.setAttribute("result",result);//使用session作用域
         model.addAttribute("result", result);
-        return "login";
+//        return "login";
+
+
+
 
 
         //执行到此，证明登录成功！开始进行鉴权操作！
-        //跳转到PermissionController中进行健全操作！
-        return "forward:../PermissionController/checkPermission";
+        //鉴权操作主要是permission表
+        //跳转到PermissionController中进行鉴权操作！
+        //注意：跳转到PermissionController的同时需要发送一个admin_id的参数！
+        return "forward:../PermissionController/checkPermission?adminId="+result.getId();
 
         //从AdminController跳转到CustomerController中进行全查询并跳转首页
         //return "forward:../CustomerController/goIndex";
