@@ -4,7 +4,9 @@ import com.neusoft.model.Admin;
 import com.neusoft.model.Customer;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface AdminMapper {
 
 

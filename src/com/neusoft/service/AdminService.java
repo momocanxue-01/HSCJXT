@@ -2,7 +2,9 @@ package com.neusoft.service;
 
 import com.neusoft.model.Admin;
 import com.neusoft.model.Customer;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface AdminService {
 
     //声明登录验证查询方法

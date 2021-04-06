@@ -1,11 +1,15 @@
 package com.neusoft.mapper;
 
 import com.neusoft.model.Customer;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface CustomerMapper {
 
 
@@ -18,5 +22,8 @@ public interface CustomerMapper {
 
     @Insert("insert into customer values(default, #{name}, #{score}, #{cfrom}, #{tel}, #{radio})")
     int inesertCustomer(Customer customer);
+
+
+    int deleteCustomer(int id);
 
 }

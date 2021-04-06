@@ -1,10 +1,8 @@
 package com.neusoft.controller;
 
-import com.neusoft.model.Admin;
-import com.neusoft.model.AdminPermission;
-import com.neusoft.model.Customer;
-import com.neusoft.model.Permission;
+import com.neusoft.model.*;
 import com.neusoft.service.AdminService;
+import com.neusoft.service.HospitalService;
 import com.neusoft.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +22,9 @@ public class AdminController {
     @Autowired
     AdminService adminService;
 
+    @Autowired
+    HospitalService hospitalService;
+
     @RequestMapping("/goLogin")
     public String goLogin(){
         return "gologing";
@@ -31,9 +32,11 @@ public class AdminController {
 
 
     @RequestMapping("login")
-    public String login(){
-
-        return "newspage023";
+    public ModelAndView login(Hospital hospital,ModelAndView mav){
+        List<Hospital> list = hospitalService.selectHospital();
+        mav.addObject("hospital",list);
+        mav.setViewName("newspage023");
+        return mav;
     }
 
 //--------------------

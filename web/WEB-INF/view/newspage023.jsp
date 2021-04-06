@@ -121,21 +121,21 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <c:forEach items="${hospital}" var="hospital">
                                     <tr class="gradeX">
-                                        <td>0001</td>
-                                        <td>吉林省</td>
-                                        <td>长春市</td>
-                                        <td class="center hidden-phone">长春市第一医院</td>
+                                        <td>${hospital.id}</td>
+                                        <td>${hospital.province}</td>
+                                        <td>${hospital.city}</td>
+                                        <td class="center hidden-phone">${hospital.name}</td>
                                         <td>
                                             <button>
-                                                <a href="${pageContext.request.contextPath}/CustomerController/yuyueselect?id=${adminId}&name=长春市第一医院">预约</a>
+                                                <a href="${pageContext.request.contextPath}/CustomerController/yuyueselect?id=${result.id}&name=${hospital.name}">预约</a>
                                             </button>
-                                            <br>
 
                                                 <c:forEach items="${list}" var="permission" varStatus="i">
                                                     <c:if test="${permission.name=='用户授权'}">
                                                         <button>
-                                                            <a href="#">删除</a>
+                                                            <a href="${pageContext.request.contextPath}/CustomerController/hospitalDelete?id=${hospital.id}">删除</a>
                                                         </button>
 
                                                     </c:if>
@@ -143,160 +143,9 @@
 
                                         </td>
                                     </tr>
-                                    <tr class="gradeC">
-                                        <td>0002</td>
-                                        <td>吉林省</td>
-                                        <td>蛟河市</td>
-                                        <td class="center hidden-phone">蛟河市第一医院</td>
-                                        <td>
-                                            <button>
-                                                <a href="#">预约</a>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>0003</td>
-                                        <td>吉林省</td>
-                                        <td>吉林市</td>
-                                        <td class="center hidden-phone">吉林市第一医院</td>
-                                        <td>
-                                            <button>
-                                                <a href="#">预约</a>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>0004</td>
-                                        <td>吉林省</td>
-                                        <td>白城市</td>
-                                        <td class="center hidden-phone">白城市第一医院</td>
-                                        <td>
-                                            <button>
-                                                <a href="#">预约</a>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>0005</td>
-                                        <td>吉林省</td>
-                                        <td>延吉市</td>
-                                        <td class="center hidden-phone">延吉市第一医院</td>
-                                        <td>
-                                            <button>
-                                                <a href="#">预约</a>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>0006</td>
-                                        <td>黑龙江省</td>
-                                        <td>牡丹江市</td>
-                                        <td class="center hidden-phone">牡丹江市第一医院</td>
-                                        <td>
-                                            <button>
-                                                <a href="#">预约</a>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>0007</td>
-                                        <td>黑龙江省</td>
-                                        <td>哈尔滨市</td>
-                                        <td class="center hidden-phone">哈尔滨市第一医院</td>
-                                        <td>
-                                            <button>
-                                                <a href="#">预约</a>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>0008</td>
-                                        <td>黑龙江省</td>
-                                        <td>鸡西市</td>
-                                        <td class="center hidden-phone">鸡西市第一医院</td>
-                                        <td>
-                                            <button>
-                                                <a href="#">预约</a>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>0009</td>
-                                        <td>辽宁省</td>
-                                        <td>沈阳市</td>
-                                        <td class="center hidden-phone">沈阳市第一医院</td>
-                                        <td>
-                                            <button>
-                                                <a href="#">预约</a>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>0010</td>
-                                        <td>辽宁省</td>
-                                        <td>大连市</td>
-                                        <td class="center hidden-phone">大连市第一医院</td>
-                                        <td>
-                                            <button>
-                                                <a href="#">预约</a>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>0011</td>
-                                        <td>辽宁省</td>
-                                        <td>鞍山市</td>
-                                        <td class="center hidden-phone">鞍山市第一医院</td>
-                                        <td>
-                                            <button>
-                                                <a href="#">预约</a>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>0012</td>
-                                        <td>山东省</td>
-                                        <td>济南市</td>
-                                        <td class="center hidden-phone">济南市第一医院</td>
-                                        <td>
-                                            <button>
-                                                <a href="#">预约</a>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>0013</td>
-                                        <td>山东省</td>
-                                        <td>青岛市</td>
-                                        <td class="center hidden-phone">青岛市第一医院</td>
-                                        <td>
-                                            <button>
-                                                <a href="#">预约</a>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>0014</td>
-                                        <td>山东省</td>
-                                        <td>烟台市</td>
-                                        <td class="center hidden-phone">烟台市第一医院</td>
-                                        <td>
-                                            <button>
-                                                <a href="#">预约</a>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>0015</td>
-                                        <td>山东省</td>
-                                        <td>威海市</td>
-                                        <td class="center hidden-phone">威海市第一医院</td>
-                                        <td>
-                                            <button>
-                                                <a href="#">预约</a>
-                                            </button>
-                                        </td>
-                                    </tr>
+                                    </c:forEach>
+
+
                                     </tbody>
                                 </table>
                             </div>

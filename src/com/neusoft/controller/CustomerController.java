@@ -5,12 +5,16 @@ import com.neusoft.model.Admin;
 import com.neusoft.model.Customer;
 import com.neusoft.model.CustomerPage;
 import com.neusoft.service.CustomerService;
+import com.neusoft.service.HospitalService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -20,19 +24,22 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
 
+    @Autowired
+    HospitalService hospitalService;
+
     @RequestMapping("/goIndex")
     public ModelAndView goIndex(Customer customer ,ModelAndView mav){
 //        //1.调用业务层方法完成全查询功能
-//        List<Customer> list = customerService.selectCustomer();
+//        List<Customer> customers = customerService.selectCustomer();
 //        //2.将查询到的集合发送到首页中展示
-//        mav.addObject("list",list);//默认使用request作用域
-//        mav.setViewName("newspage");
+//        mav.addObject("customers",customers);//默认使用request作用域
+//        mav.setViewName("newspage23");
 //        //3.返回mav对象即可
-//        System.out.println("返回集合" + list);
-//        return mav;
+//        System.out.println("返回集合" + customers);
+
 
         //接收newspage024.jsp画面传递来的参数 添加数据库
-            boolean result = customerService.inesertCustomer(customer);
+        boolean result = customerService.inesertCustomer(customer);
         if (result == true ){
             System.out.println("添加成功");
         }
@@ -71,12 +78,19 @@ public class CustomerController {
             return "newspage024";
       }
 
-
-
+    /**
+     *按序号删除医院
+     * @param id 要删除的用户
+     */
+    @RequestMapping("/hospitalDelete")
+      public String hospitalDelete(int id){
+        hospitalService.deleteHospital(id);
+        return "redirect:/AdminController/login";
+      }
 
 
     @RequestMapping("/goIndex01")
-    public ModelAndView goIndex01(Customer customer ,ModelAndView mav){
+    public ModelAndView goIndex01(HttpSession session,Customer customer , ModelAndView mav){
 
 
         //由于开启分页查询，所以跳转到首页后不可以在进行全查询
@@ -86,6 +100,7 @@ public class CustomerController {
         //2.将cp对象打包
         mav.addObject("cp",cp);
         mav.setViewName("newspage025");
+        session.setAttribute("cp",cp);
         return mav;
     }
 

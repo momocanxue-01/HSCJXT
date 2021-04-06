@@ -2,9 +2,11 @@ package com.neusoft.service;
 
 import com.neusoft.model.Customer;
 import com.neusoft.model.CustomerPage;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface CustomerService {
 
 
@@ -14,7 +16,7 @@ public interface CustomerService {
     boolean updateCustomer(Customer customer);
 
     //声明删除方法
-    boolean deleteCustomer(int id);
+    int deleteCustomer(int id);
 
     //声明全查询抽象方法
     List<Customer> selectCustomer();

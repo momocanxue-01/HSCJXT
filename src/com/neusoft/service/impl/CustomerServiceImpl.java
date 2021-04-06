@@ -3,6 +3,7 @@ package com.neusoft.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.neusoft.mapper.CustomerMapper;
+import com.neusoft.model.Admin;
 import com.neusoft.model.Customer;
 import com.neusoft.model.CustomerPage;
 import com.neusoft.service.CustomerService;
@@ -28,9 +29,8 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public boolean deleteCustomer(int id) {
-        //先不编写删除代码
-        return false;
+    public int deleteCustomer(int id) {
+        return customerMapper.deleteCustomer(id);
     }
 
     @Override
