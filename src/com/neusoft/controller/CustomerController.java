@@ -24,8 +24,6 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
 
-    @Autowired
-    HospitalService hospitalService;
 
     @RequestMapping("/goIndex")
     public ModelAndView goIndex(Customer customer ,ModelAndView mav){
@@ -78,15 +76,7 @@ public class CustomerController {
             return "newspage024";
       }
 
-    /**
-     *按序号删除医院
-     * @param id 要删除的用户
-     */
-    @RequestMapping("/hospitalDelete")
-      public String hospitalDelete(int id){
-        hospitalService.deleteHospital(id);
-        return "redirect:/AdminController/login";
-      }
+
 
 
     @RequestMapping("/goIndex01")

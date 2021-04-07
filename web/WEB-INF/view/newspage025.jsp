@@ -111,9 +111,6 @@
                     <section class="panel">
                         <header class="panel-heading">
                             核酸检测
-                            <span class="tools pull-right">
-
-             </span>
                         </header>
                         <div class="panel-body">
                             <div class="adv-table">
