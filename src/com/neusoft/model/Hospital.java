@@ -1,8 +1,8 @@
 package com.neusoft.model;
 
-import lombok.Data;
 
-@Data
+
+
 public class Hospital {
 
 
@@ -11,4 +11,35 @@ public class Hospital {
     private String city;//城市、
     private String name;//医院名称
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
