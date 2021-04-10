@@ -2,6 +2,7 @@ package com.neusoft.mapper;
 
 import com.neusoft.model.Hospital;
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -18,5 +19,8 @@ public interface HospitalMapper {
     //根据医院id删除医院信息
     @Delete("delete from hospital where hospital_id =#{id}")
     int deleteHospital(int id);
+
+    //管理员添加医院信息的方法
+    int insertHospital(Hospital hospital);
 
 }

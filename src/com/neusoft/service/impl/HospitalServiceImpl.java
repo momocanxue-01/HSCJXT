@@ -24,4 +24,9 @@ public class HospitalServiceImpl implements HospitalService {
     public int deleteHospital(int id) {
         return hospitalMapper.deleteHospital(id);
     }
+
+    @Override
+    public int insertHospital(Hospital hospital) {
+        return hospitalMapper.insertHospital(hospital);
+    }
 }

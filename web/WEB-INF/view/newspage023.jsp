@@ -135,7 +135,10 @@
                                                 <c:forEach items="${list}" var="permission" varStatus="i">
                                                     <c:if test="${permission.name=='用户授权'}">
                                                         <button>
-                                                            <a href="${pageContext.request.contextPath}/CustomerController/hospitalDelete?id=${hospital.id}">删除</a>
+                                                            <a href="${pageContext.request.contextPath}/HospitalController/hospitalDelete?id=${hospital.id}">删除</a>
+                                                        </button>
+                                                        <button>
+                                                            <a href="${pageContext.request.contextPath}/HospitalController/hospitalInsert?id=${hospital.id}">删除</a>
                                                         </button>
 
                                                     </c:if>
