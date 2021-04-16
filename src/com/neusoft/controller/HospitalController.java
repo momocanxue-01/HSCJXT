@@ -35,7 +35,7 @@ public class HospitalController {
     }
 
     /**
-     * 跳转到添加画面
+     * 跳转到添加画面ss
      * @return 添加画面
      */
     @RequestMapping("/addhospital")
