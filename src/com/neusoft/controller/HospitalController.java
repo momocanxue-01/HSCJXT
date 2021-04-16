@@ -1,8 +1,10 @@
 package com.neusoft.controller;
 
+import com.neusoft.model.Hospital;
 import com.neusoft.service.HospitalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -20,6 +22,27 @@ public class HospitalController {
     public String hospitalDelete(int id){
         hospitalService.deleteHospital(id);
         return "redirect:/AdminController/login";
+    }
+
+    /**
+     * 管理员添加医院信息
+     * @param hospital 医院实体类
+     */
+    @RequestMapping("/hospitalInsert")
+    public String hospitalInsert(Hospital hospital){
+        hospitalService.insertHospital(hospital);
+        return "redirect:/AdminController/login";
+    }
+
+    /**
+     * 跳转到添加画面
+     * @param id 医院序号
+     * @param model
+     * @return 添加画面
+     */
+    @RequestMapping("/addhospital")
+    public String addHospital(){
+        return "addhospital";
     }
 
 

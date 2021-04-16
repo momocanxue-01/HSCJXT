@@ -82,7 +82,7 @@
             <!--toggle button end-->
 
             <!--search start-->
-            <form class="searchform" action="index.html" method="post">
+            <form class="searchform" action="newspage023.jsp" method="post">
                 <input type="text" class="form-control" name="keyword" placeholder="医院搜索" />
                 <input type="button" class="form-control" name="keyword" value="搜索" />
             </form>
@@ -107,7 +107,9 @@
                         <header class="panel-heading">
                             核酸检测
                         </header>
-                        
+                            <button>
+                                <a href="${pageContext.request.contextPath}/HospitalController/addhospital">添加医院</a>
+                            </button>
                         <div class="panel-body">
                             <div class="adv-table">
                                 <table  class="display table table-bordered table-striped" id="dynamic-table">
@@ -121,7 +123,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach items="${hospital}" var="hospital">
+                                    <c:forEach items="${hospital}" var="hospital" varStatus="j">
                                     <tr class="gradeX">
                                         <td>${hospital.id}</td>
                                         <td>${hospital.province}</td>
@@ -137,9 +139,7 @@
                                                         <button>
                                                             <a href="${pageContext.request.contextPath}/HospitalController/hospitalDelete?id=${hospital.id}">删除</a>
                                                         </button>
-                                                        <button>
-                                                            <a href="${pageContext.request.contextPath}/HospitalController/hospitalInsert?id=${hospital.id}">删除</a>
-                                                        </button>
+
 
                                                     </c:if>
                                                 </c:forEach>

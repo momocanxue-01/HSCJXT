@@ -20,7 +20,7 @@ public class PermissionController {
     PermissionService permissionService;
 
     @RequestMapping("/checkPermission")
-    public ModelAndView checkPermission(HttpSession session, Integer adminId, ModelAndView mav){
+    public String checkPermission(HttpSession session, Integer adminId, ModelAndView mav){
         //进行用户的鉴权操作，并且把当前用户对应的权限发送到首页中展示！
         //1.接取当前登录的用户id
         System.out.println("111"+adminId);
@@ -28,9 +28,9 @@ public class PermissionController {
         List<Permission> list=permissionService.checkPermission(adminId);
         //3.将集合发送到首页中展示
         mav.addObject("list",list);
-        mav.setViewName("login");
+        mav.setViewName("newspage023");
         session.setAttribute("list",list);//使用session作用域
-        return mav;
+        return "login";
 
     }
 

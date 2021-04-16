@@ -21,6 +21,7 @@ public interface HospitalMapper {
     int deleteHospital(int id);
 
     //管理员添加医院信息的方法
+    @Insert("insert into hospital(hospital_province,hospital_city,hospital_name) values (#{province},#{city},#{name})")
     int insertHospital(Hospital hospital);
 
 }
