@@ -36,8 +36,6 @@ public class HospitalController {
 
     /**
      * 跳转到添加画面
-     * @param id 医院序号
-     * @param model
      * @return 添加画面
      */
     @RequestMapping("/addhospital")
