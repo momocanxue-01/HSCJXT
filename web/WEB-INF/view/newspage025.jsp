@@ -51,17 +51,21 @@
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li><a href="#"><i class="fa fa-home"></i> <span>医疗管理</span></a></li>
+                <li class="menu-list"><a href="${pageContext.request.contextPath}/AdminController/login"><i class="fa fa-laptop"></i> <span>门诊管理</span></a></li>
 
-                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>门诊管理</span></a></li>
+                <c:forEach items="${list}" var="permission" varStatus="i">
+                    <c:if test="${permission.name=='用户授权'}">
+                        <li><a href="${pageContext.request.contextPath}/HospitalController/addhospital"><i class="fa fa-home"></i> <span>添加医院</span></a></li>
+                    </c:if>
+                </c:forEach>
 
-                <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>社区工作部</span></a></li>
+                <li class="menu-list"><a href="${pageContext.request.contextPath}/CustomerController/goIndex01"><i class="fa fa-home"></i> <span>排队信息</span></a></li>
 
-                <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>防护须知</span></a></li>
-
-                <li><a href="fontawesome.html"><i class="fa fa-bullhorn"></i> <span>新闻中心</span></a></li>
+                <li><a href="${pageContext.request.contextPath}/newscontroller/newsshow"><i class="fa fa-bullhorn"></i> <span>新闻中心</span></a></li>
 
                 <li class="menu-list"><a href=""><i class="fa fa-envelope"></i> <span>意见反馈</span></a></li>
+
+                <li class="menu-list"><a href="${pageContext.request.contextPath}/PermissionController/checkPermission?adminId=${result.id}"><i class="fa fa-envelope"></i> <span>返回主页</span></a></li>
             </ul>
             <!--sidebar nav end-->
 
@@ -81,9 +85,9 @@
         <!-- header section start-->
         <div class="header-section">
 
-            <!--toggle button start-->
-            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
-            <!--toggle button end-->
+            <%--返回按钮--%>
+            <a href="${pageContext.request.contextPath}/AdminController/login" class="toggle-btn"><i class="fa fa-bars"></i></a>
+
 
             <!--search start-->
             <form class="searchform" action="index.html" method="post">

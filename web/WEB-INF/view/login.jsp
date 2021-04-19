@@ -24,10 +24,10 @@
             margin-left: 1%;
         }
         .header2{
-            width: 98%;
+            width: 90%;
             height: 350px;
             margin-top: 3px;
-            margin-left: 1%;
+            margin-left: 5%;
 
         }
         .firstdiv{
@@ -59,22 +59,21 @@
 
     </table>
 </div>
-<c:forEach items="${list}" var="permission" varStatus="i">
-    <a href="#">${permission.name}</a>
-</c:forEach>
 <div>
     <table>
         <tr>
             <td id="yuyue">
-                <a href="${pageContext.request.contextPath}/AdminController/login">
+                <a href="${pageContext.request.contextPath}/AdminController/login?id=${result.id}">
                     <p id="fff1">预约</p>
                 </a>
             </td>
             <td id="yuyue">
-                <a href="${pageContext.request.contextPath}/CustomerController/goIndex01">我的预约</a>
+                <a href="${pageContext.request.contextPath}/CustomerController/goIndex01">
+                    <p id="fff1">排队信息</p>
+                </a>
             </td>
             <td id="yuyue">
-                <a href="${pageContext.request.contextPath}/AdminController/login">
+                <a href="${pageContext.request.contextPath}/AdminController/login?id=${result.id}">
                     管理员入口
                 </a>
             </td>

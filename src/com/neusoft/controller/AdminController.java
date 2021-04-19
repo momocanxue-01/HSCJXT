@@ -3,7 +3,6 @@ package com.neusoft.controller;
 import com.neusoft.model.*;
 import com.neusoft.service.AdminService;
 import com.neusoft.service.HospitalService;
-import com.neusoft.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +18,9 @@ import java.util.List;
 @SessionAttributes("result")
 public class AdminController {
 
+    @Autowired(required = false)
+    AdminPermission adminPermission;
+
     @Autowired
     AdminService adminService;
 
@@ -31,12 +33,20 @@ public class AdminController {
     }
 
 
-    @RequestMapping("login")
-    public ModelAndView login(Hospital hospital,ModelAndView mav){
-        List<Hospital> list = hospitalService.selectHospital();
-        mav.addObject("hospital",list);
+    /**
+     * 利用查询方法查询到全部的医院信息,并将医院信息返回到医院管理页面
+     * @param mav
+     * @return 医院管理页面
+     */
+    @RequestMapping("/login")
+    public ModelAndView login(ModelAndView mav){
+        //将医院信息装入List集合中,并展示到页面
+        List<Hospital> hospital = hospitalService.selectHospital();
+
+        mav.addObject("hospital",hospital);
         mav.setViewName("newspage023");
         return mav;
+
     }
 
 //--------------------

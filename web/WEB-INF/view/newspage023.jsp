@@ -50,17 +50,21 @@
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li><a href="#"><i class="fa fa-home"></i> <span>医疗管理</span></a></li>
+                <li class="menu-list"><a href="${pageContext.request.contextPath}/AdminController/login"><i class="fa fa-laptop"></i> <span>门诊管理</span></a></li>
 
-                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>门诊管理</span></a></li>
+                <c:forEach items="${list}" var="permission" varStatus="i">
+                    <c:if test="${permission.name=='用户授权'}">
+                        <li><a href="${pageContext.request.contextPath}/HospitalController/addhospital"><i class="fa fa-home"></i> <span>添加医院</span></a></li>
+                    </c:if>
+                </c:forEach>
 
-                <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>社区工作部</span></a></li>
+                <li class="menu-list"><a href="${pageContext.request.contextPath}/CustomerController/goIndex01"><i class="fa fa-home"></i> <span>排队信息</span></a></li>
 
-                <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>防护须知</span></a></li>
-
-                <li><a href="fontawesome.html"><i class="fa fa-bullhorn"></i> <span>新闻中心</span></a></li>
+                <li><a href="${pageContext.request.contextPath}/newscontroller/newsshow"><i class="fa fa-bullhorn"></i> <span>新闻中心</span></a></li>
 
                 <li class="menu-list"><a href=""><i class="fa fa-envelope"></i> <span>意见反馈</span></a></li>
+
+                <li class="menu-list"><a href="${pageContext.request.contextPath}/PermissionController/checkPermission?adminId=${result.id}"><i class="fa fa-envelope"></i> <span>返回主页</span></a></li>
             </ul>
             <!--sidebar nav end-->
 
@@ -77,24 +81,16 @@
         <!-- header section start-->
         <div class="header-section">
 
-            <!--toggle button start-->
-            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
-            <!--toggle button end-->
+            <%--返回按钮--%>
+            <a href="${pageContext.request.contextPath}/AdminController/login" class="toggle-btn"><i class="fa fa-bars"></i></a>
 
-            <!--search start-->
-            <form class="searchform" action="newspage023.jsp" method="post">
-                <input type="text" class="form-control" name="keyword" placeholder="医院搜索" />
-                <input type="button" class="form-control" name="keyword" value="搜索" />
-            </form>
-            <!--search end-->
-
-            <!--notification menu start -->
-            <div class="menu-right">
-                <ul class="notification-menu">
-
-                </ul>
-            </div>
-            <!--notification menu end -->
+            <%--一个未完善的预留医院搜索功能--%>
+            <%--<!--search start-->--%>
+            <%--<form class="searchform" action="newspage023.jsp" method="post">--%>
+                <%--<input type="text" class="form-control" name="keyword" placeholder="医院搜索" />--%>
+                <%--<input type="button" class="form-control" name="keyword" value="搜索" />--%>
+            <%--</form>--%>
+            <%--<!--search end-->--%>
 
         </div>
         <!-- header section end-->
@@ -104,14 +100,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <section class="panel">
-                        <header class="panel-heading">
-                            核酸检测
-                        </header>
-                            <button>
-                                <a href="${pageContext.request.contextPath}/HospitalController/addhospital">添加医院</a>
-                            </button>
                         <div class="panel-body">
-                            <div class="adv-table">
                                 <table  class="display table table-bordered table-striped" id="dynamic-table">
                                     <thead>
                                     <tr>
@@ -119,7 +108,7 @@
                                         <th>省份</th>
                                         <th>城市</th>
                                         <th class="hidden-phone">医院</th>
-                                        <<th class="hidden-phone">点击预约</th>
+                                        <th class="hidden-phone">点击预约</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -151,20 +140,13 @@
 
                                     </tbody>
                                 </table>
-                            </div>
                         </div>
                     </section>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-12">
-
-                </div>
             </div>
         </div>
         <!--body wrapper end-->
-
-
     </div>
     <!-- main content end-->
 </section>
@@ -181,7 +163,7 @@
 <script type="text/javascript" language="javascript" src="../js/advanced-datatable/js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="../js/data-tables/DT_bootstrap.js"></script>
 <!--dynamic table initialization -->
-<script src="../js/dynamic_table_init.js"></script>
+
 
 <!--common scripts for all pages-->
 <script src="js/scripts.js"></script>

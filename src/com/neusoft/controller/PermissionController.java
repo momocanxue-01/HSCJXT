@@ -23,15 +23,18 @@ public class PermissionController {
     public String checkPermission(HttpSession session, Integer adminId, ModelAndView mav){
         //进行用户的鉴权操作，并且把当前用户对应的权限发送到首页中展示！
         //1.接取当前登录的用户id
-        System.out.println("111"+adminId);
         //2.根据admin_id调用鉴权方法完成鉴权即可！调用业务层方法！
         List<Permission> list=permissionService.checkPermission(adminId);
+        System.out.println("2323"+adminId);
         //3.将集合发送到首页中展示
         mav.addObject("list",list);
+        mav.addObject("adminId",adminId);
         mav.setViewName("newspage023");
         session.setAttribute("list",list);//使用session作用域
         return "login";
 
     }
+
+
 
 }

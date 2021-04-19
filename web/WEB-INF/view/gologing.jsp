@@ -37,15 +37,16 @@ ${error}
     <a href="${pageContext.request.contextPath}/AdminController/doLoging">注册</a>
 </form>
 
-<!-- Footer -->
-<footer id="footer">
-    <ul class="icons">
-        <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-        <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-        <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-        <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
-    </ul>
-</footer>
+<%--几个邮箱的连接图标,暂时不用--%>
+<%--<!-- Footer -->--%>
+<%--<footer id="footer">--%>
+    <%--<ul class="icons">--%>
+        <%--<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>--%>
+        <%--<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>--%>
+        <%--<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>--%>
+        <%--<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>--%>
+    <%--</ul>--%>
+<%--</footer>--%>
 
 <!-- Scripts -->
 <script src="assets/js/main.js"></script>

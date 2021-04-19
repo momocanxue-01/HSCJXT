@@ -18,6 +18,28 @@
   		-->
 		<load-on-startup>1</load-on-startup>
  	</servlet>
+
+	<!--配置404,500等错误页面-->
+	<error-page>
+		<error-code>500</error-code>
+		<location>/WEB-INF/view/500.jsp</location>
+	</error-page>
+	<!--<error-page>-->
+		<!--<error-code>414</error-code>-->
+		<!--<location>/WEB-INF/jsp/errors/error.jsp</location>-->
+	<!--</error-page>-->
+	<!--<error-page>-->
+		<!--<error-code>505</error-code>-->
+		<!--<location>/WEB-INF/jsp/errors/error.jsp</location>-->
+	<!--</error-page>-->
+	<!--<error-page>-->
+		<!--<error-code>400</error-code>-->
+		<!--<location>/WEB-INF/jsp/errors/error.jsp</location>-->
+	<!--</error-page>-->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/view/404.jsp</location>
+	</error-page>
   
   	<!-- 配置前端控制器映射路径 -->
 	<servlet-mapping>
@@ -31,6 +53,7 @@
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.PNG</url-pattern>
 	</servlet-mapping>
+
 
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
