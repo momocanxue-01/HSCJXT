@@ -54,11 +54,6 @@
             </button>
             <a href="${pageContext.request.contextPath}/entry.jsp" type="submit" class="btn btn-lg btn-login btn-block">登录</a>
 
-            <div class="registration">
-                <a href="login.html" class="">
-                    用户协议
-                </a>
-            </div>
 
         </div>
 

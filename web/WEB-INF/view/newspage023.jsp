@@ -85,12 +85,12 @@
             <a href="${pageContext.request.contextPath}/AdminController/login" class="toggle-btn"><i class="fa fa-bars"></i></a>
 
             <%--一个未完善的预留医院搜索功能--%>
-            <%--<!--search start-->--%>
-            <%--<form class="searchform" action="newspage023.jsp" method="post">--%>
+            <!--search start-->
+            <%--<form class="searchform" action="${pageContext.request.contextPath}/AdminController/login" method="post">--%>
                 <%--<input type="text" class="form-control" name="keyword" placeholder="医院搜索" />--%>
-                <%--<input type="button" class="form-control" name="keyword" value="搜索" />--%>
+                <%--<input type="submit" class="form-control" name="keyword" value="搜索" />--%>
             <%--</form>--%>
-            <%--<!--search end-->--%>
+            <!--search end-->
 
         </div>
         <!-- header section end-->
@@ -104,7 +104,6 @@
                                 <table  class="display table table-bordered table-striped" id="dynamic-table">
                                     <thead>
                                     <tr>
-                                        <th>序号</th>
                                         <th>省份</th>
                                         <th>城市</th>
                                         <th class="hidden-phone">医院</th>
@@ -114,7 +113,6 @@
                                     <tbody>
                                     <c:forEach items="${hospital}" var="hospital" varStatus="j">
                                     <tr class="gradeX">
-                                        <td>${hospital.id}</td>
                                         <td>${hospital.province}</td>
                                         <td>${hospital.city}</td>
                                         <td class="center hidden-phone">${hospital.name}</td>

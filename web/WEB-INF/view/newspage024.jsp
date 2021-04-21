@@ -41,11 +41,12 @@
 
         <div class="login-wrap">
             <p>请在下面注册您的账号</p>
-            <input type="text" autofocus=""  class="form-control" value="${id}" name="tel" readonly>
+            <input type="text" autofocus=""  class="form-control" value="${result.id}" name="id" readonly>
             <input type="text" autofocus=""  class="form-control" value="${name}" name="cfrom" readonly>
             <input type="text" autofocus=""  class="form-control" placeholder="请输入姓名" name="name">
             <input type="text" autofocus=""  class="form-control" placeholder="请输入性别" name="radio">
-            <input type="text" autofocus=""  class="form-control" placeholder="请输入身份证号码" name="score" >
+            <input type="text" autofocus=""  class="form-control" placeholder="请输入身份证" name="score" >
+            <input type="text" autofocus=""  class="form-control" placeholder="请输入电话号码" name="tel" >
             <label class="checkbox">
                 <input type="checkbox" value="agree this condition"> 我已阅读并同意遵守
             </label>
@@ -53,11 +54,6 @@
                 <%--<i class="fa fa-check"></i>--%>
             </button>
 
-            <div class="registration">
-                <a href="login.html" class="">
-                    用户协议
-                </a>
-            </div>
 
         </div>
 

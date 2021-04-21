@@ -24,25 +24,35 @@
             margin-left: 1%;
         }
         .header2{
-            width: 90%;
+            width: 100%;
             height: 350px;
             margin-top: 3px;
-            margin-left: 5%;
 
         }
         .firstdiv{
-            height: 580px;
+            height: 521px;
         }
         #yuyue{
-            width: 500px;
+            width: 490px;
+
             text-align: center;
         }
+
         #fff1{
             /*            float: left;*/
         }
         #pp{
             margin-top: 100px;
         }
+        #btn-login{
+            width: 100%;
+            height:90px;
+            background-image: url("../../images/btn.jpg");
+            font-size: 20px;
+
+        }
+
+
     </style>
 
 </head>
@@ -56,28 +66,39 @@
         <tr>
             <img class="header2" src="../img/疫情防控.jpg">
         </tr>
-
     </table>
 </div>
 <div>
     <table>
-        <tr>
+        <tr id="btn-login2">
             <td id="yuyue">
                 <a href="${pageContext.request.contextPath}/AdminController/login?id=${result.id}">
-                    <p id="fff1">预约</p>
+                    <button id="btn-login" title="">
+                        预约
+                    </button>
                 </a>
             </td>
             <td id="yuyue">
                 <a href="${pageContext.request.contextPath}/CustomerController/goIndex01">
-                    <p id="fff1">排队信息</p>
+                    <button id="btn-login">
+                        排队信息
+                    </button>
                 </a>
             </td>
             <td id="yuyue">
                 <a href="${pageContext.request.contextPath}/AdminController/login?id=${result.id}">
-                    管理员入口
+                    <button id="btn-login">
+                        管理员入口
+                    </button>
                 </a>
             </td>
-            <td id="yuyue"><a href="#">意见反馈</a></td>
+            <td id="yuyue">
+                <a href="#">
+                    <button id="btn-login">
+                        反馈意见
+                    </button>
+                </a>
+            </td>
         </tr>
     </table>
 </div>

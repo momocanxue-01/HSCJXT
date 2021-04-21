@@ -284,46 +284,49 @@
 
     <div class="timeline">
         <%--返回按钮--%>
-        <a href="${pageContext.request.contextPath}/AdminController/login" class="ret-btn"><img id="ret-img" src="../../images/ret.png"></a>
+        <a href="${pageContext.request.contextPath}/AdminController/login" class="ret-btn"><img id="ret-img" src="${pageContext.request.contextPath}/images/ret.jpg">返回</a>
 
         <div class="swiper-container">
 
             <div class="swiper-wrapper">
-
                 <div class="swiper-slide" style="background-image: url(${pageContext.request.contextPath}/images/01.jpg);" data-year="one">
                     <div class="swiper-slide-content"><span class="timeline-year">one</span>
-                        <h4 class="timeline-title">Our nice super title</h4>
-                        <p class="timeline-text">Lorem ipsum dolor site amet, consectetur adipscing elit, sed do eisumod tempor incididut ut labore et dolore magna aliqua. Ut enim ad mimim venjam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <h4 class="timeline-title">上海:高校师生有序进行新冠疫苗接种</h4>
+                        <p class="timeline-text">4月15日，在上海师范大学徐汇校区，接种人员在接种新冠疫苗。近日，上海师范大学组织开展第二轮新冠疫苗接种工作。截至目前，该校两个校区的23000多名学生、教职工已完成接种。据悉，上海正在有序组织、深入科普、精细服务，稳妥有序推进各高校师生员工的新冠疫苗接种工作.</p>
                     </div>
                 </div>
                 <div class="swiper-slide" style="background-image: url(${pageContext.request.contextPath}/images/02.jpg);" data-year="two">
                     <div class="swiper-slide-content"><span class="timeline-year">two</span>
-                        <h4 class="timeline-title">Our nice super title</h4>
-                        <p class="timeline-text">Lorem ipsum dolor site amet, consectetur adipscing elit, sed do eisumod tempor incididut ut labore et dolore magna aliqua. Ut enim ad mimim venjam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <h4 class="timeline-title">溯源联合专家组：武汉病毒所3名员工2019年出现疑似新冠症状信息不实</h4>
+                        <p class="timeline-text">3月31日，中国—世界卫生组织新冠病毒溯源联合研究中方专家组就联合研究报告有关情况举行发布会。会上，北京化工大学生命学院院长、联合专家组动物与环境学组中方组长童贻刚就有媒体报道称“武汉病毒所3名员工于2019年11月疑似出现新冠肺炎症状”一事进行回应。</p>
                     </div>
                 </div>
                 <div class="swiper-slide" style="background-image: url(${pageContext.request.contextPath}/images/03.jpg);" data-year="three">
                     <div class="swiper-slide-content"><span class="timeline-year">three</span>
-                        <h4 class="timeline-title">Our nice super title</h4>
-                        <p class="timeline-text">Lorem ipsum dolor site amet, consectetur adipscing elit, sed do eisumod tempor incididut ut labore et dolore magna aliqua. Ut enim ad mimim venjam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <h4 class="timeline-title">人民时评：新冠疫苗接种是道必答题 </h4>
+                        <p class="timeline-text">我国正在按照“应接尽接、梯次推进、突出重点、保障安全”的原则，积极组织实施疫苗接种，稳步提高疫苗接种人群覆盖率。
+                            我们必须把握窗口期，加快推进接种疫苗，这样才能有效抵御疫情输入的风险，在全球疫情防控中跑赢下半场。</p>
                     </div>
                 </div>
                 <div class="swiper-slide" style="background-image: url(${pageContext.request.contextPath}/images/04.jpg);" data-year="four">
                     <div class="swiper-slide-content"><span class="timeline-year">four</span>
-                        <h4 class="timeline-title">Our nice super title</h4>
-                        <p class="timeline-text">Lorem ipsum dolor site amet, consectetur adipscing elit, sed do eisumod tempor incididut ut labore et dolore magna aliqua. Ut enim ad mimim venjam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <h4 class="timeline-title">日增26万例 印度累计新冠病例数逼近1500万</h4>
+                        <p class="timeline-text">4月18日，救灾应急部队成员在印度海得拉巴进行消毒作业。
+                            据印度卫生部18日公布的数据，该国较前一日新增新冠确诊病例261500例，创疫情以来新高，累计确诊14788109例；新增死亡病例1501例，累计死亡177150例。</p>
                     </div>
                 </div>
                 <div class="swiper-slide" style="background-image: url(${pageContext.request.contextPath}/images/05.jpg);" data-year="five">
                     <div class="swiper-slide-content"><span class="timeline-year">five</span>
-                        <h4 class="timeline-title">Our nice super title</h4>
-                        <p class="timeline-text">Lorem ipsum dolor site amet, consectetur adipscing elit, sed do eisumod tempor incididut ut labore et dolore magna aliqua. Ut enim ad mimim venjam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <h4 class="timeline-title">92岁李嘉诚打新冠疫苗，用行动支持疫苗接种计划</h4>
+                        <p class="timeline-text">现年92岁的香港首富李嘉诚接种的是复星/BioNTech新冠肺炎疫苗（复必泰），他4月16日在“香港养和医院”接种了第一针。
+                            据悉 ，李嘉诚接种的“复必泰”是中国上海和德国美因茨联合出品的疫苗。当天，92岁的李嘉诚戴着标志性的黑框眼镜，把外套的一边脱至手臂处，方便护士注射。李嘉诚戴着口罩，双眼注视前方，眼神坚定，状态很好。</p>
                     </div>
                 </div>
                 <div class="swiper-slide" style="background-image: url(${pageContext.request.contextPath}/images/06.jpg);" data-year="six">
                     <div class="swiper-slide-content"><span class="timeline-year">six</span>
-                        <h4 class="timeline-title">Our nice super title</h4>
-                        <p class="timeline-text">Lorem ipsum dolor site amet, consectetur adipscing elit, sed do eisumod tempor incididut ut labore et dolore magna aliqua. Ut enim ad mimim venjam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <h4 class="timeline-title">综述：控制疫情效果显著 中国疫苗海外获赞</h4>
+                        <p class="timeline-text">随着中国疫苗走向海外，多个国家接种中国疫苗的效果逐渐显现。无论是预防感染、避免重症还是整体控制疫情方面，中国疫苗都起到明显作用，广受赞誉。
+                            智利科技部长科韦18日表示，智利卫生部最新公布的中国科兴新冠疫苗保护效果的数据“令人振奋”。他说，研究显示，中国科兴疫苗在预防有症状感染、预防住院治疗、避免重症和因感染致死方面“非常有效”。</p>
                     </div>
                 </div>
             </div>

@@ -12,4 +12,10 @@ public class NewsController {
         return "news";
     }
 
+
+    @RequestMapping("/CKEditor")
+    public String CKEditor(){
+        return "CKEditor";
+    }
+
 }

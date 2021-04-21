@@ -63,7 +63,7 @@
 
                 <li><a href="${pageContext.request.contextPath}/newscontroller/newsshow"><i class="fa fa-bullhorn"></i> <span>新闻中心</span></a></li>
 
-                <li class="menu-list"><a href=""><i class="fa fa-envelope"></i> <span>意见反馈</span></a></li>
+                <li class="menu-list"><a href="${pageContext.request.contextPath}/newscontroller/CKEditor"><i class="fa fa-envelope"></i> <span>意见反馈</span></a></li>
 
                 <li class="menu-list"><a href="${pageContext.request.contextPath}/PermissionController/checkPermission?adminId=${result.id}"><i class="fa fa-envelope"></i> <span>返回主页</span></a></li>
             </ul>
@@ -90,10 +90,10 @@
 
 
             <!--search start-->
-            <form class="searchform" action="index.html" method="post">
-                <input type="text" class="form-control" name="keyword" placeholder="信息搜索" />
-                <input type="button" class="form-control" name="keyword" value="搜索" >
-            </form>
+            <%--<form class="searchform" action="index.html" method="post">--%>
+                <%--<input type="text" class="form-control" name="keyword" placeholder="信息搜索" />--%>
+                <%--<input type="button" class="form-control" name="keyword" value="搜索" >--%>
+            <%--</form>--%>
             <!--search end-->
 
             <!--notification menu start -->
@@ -113,9 +113,6 @@
             <div class="row">
                 <div class="col-sm-12">
                     <section class="panel">
-                        <header class="panel-heading">
-                            核酸检测
-                        </header>
                         <div class="panel-body">
                             <div class="adv-table">
                                 <table  class="display table table-bordered table-striped" id="dynamic-table">
@@ -125,7 +122,8 @@
                                         <th>姓名</th>
                                         <th>性别</th>
                                         <th class="hidden-phone">医院</th>
-                                        <<th class="hidden-phone">电话</th>
+                                        <th>身份证号</th>
+                                        <th class="hidden-phone">电话</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -135,6 +133,7 @@
                                             <td>${customer.name}</td>
                                             <td>${customer.radio}</td>
                                             <td>${customer.cfrom}</td>
+                                            <td>${customer.score}</td>
                                             <td>${customer.tel}</td>
                                         </tr>
                                     </c:forEach>
