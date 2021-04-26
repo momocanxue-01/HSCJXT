@@ -15,12 +15,12 @@ public interface CustomerMapper {
 
 
     //声明全查询SQL
-    @Select("select customer_id as id, customer_name as name, customer_score as score, customer_cfrom as cfrom , customer_tel as tel, customer_radio as radio from customer")
+    @Select("select customer_id as id, customer_name as name, customer_score as score, customer_cfrom as cfrom , customer_tel as tel, customer_radio as radio,customer_date_time as date from customer")
     List<Customer> selectCustomer();
 
     //select customer_id, customer_name , customer_score , customer_from , customer_tel , customer_password from customer
 
-    @Insert("insert into customer values(default, #{name}, #{score}, #{cfrom}, #{tel}, #{radio})")
+    @Insert("insert into customer values(default, #{name}, #{score}, #{cfrom}, #{tel}, #{radio},#{date})")
     int inesertCustomer(Customer customer);
 
 

@@ -6,6 +6,7 @@ import com.neusoft.model.Customer;
 import com.neusoft.model.CustomerPage;
 import com.neusoft.service.CustomerService;
 import com.neusoft.service.HospitalService;
+import com.neusoft.util.TransformDateFormat;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Controller
@@ -42,12 +44,11 @@ public class CustomerController {
             System.out.println("添加成功");
         }
 
-
         //由于开启分页查询，所以跳转到首页后不可以在进行全查询
         //1.调用业务层中分页查询方法完成分页查询
            CustomerPage cp = customerService.selectCustomerByPage(1,CustomerPage.PAGE_COUNT);
-
            //2.将cp对象打包
+        System.out.println(cp);
             mav.addObject("cp",cp);
             mav.setViewName("newspage025");
             return mav;

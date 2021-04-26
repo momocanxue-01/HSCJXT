@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/newscontroller")
 public class NewsController {
 
+    //返回新闻页面
     @RequestMapping("/newsshow")
     public String NewsShow(){
         return "news";

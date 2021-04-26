@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: 小安卓
@@ -124,6 +125,7 @@
                                         <th class="hidden-phone">医院</th>
                                         <th>身份证号</th>
                                         <th class="hidden-phone">电话</th>
+                                        <th class="hidden-phone">预约时间</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -135,6 +137,7 @@
                                             <td>${customer.cfrom}</td>
                                             <td>${customer.score}</td>
                                             <td>${customer.tel}</td>
+                                            <td>${customer.formateTime(customer.date)} </td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>

@@ -42,7 +42,6 @@ public class AdminController {
     public ModelAndView login(ModelAndView mav){
         //将医院信息装入List集合中,并展示到页面
         List<Hospital> hospital = hospitalService.selectHospital();
-
         mav.addObject("hospital",hospital);
         mav.setViewName("newspage023");
         return mav;
