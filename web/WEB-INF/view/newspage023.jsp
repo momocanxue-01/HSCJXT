@@ -122,7 +122,7 @@
                                             </button>
 
                                                 <c:forEach items="${list}" var="permission" varStatus="i">
-                                                    <c:if test="${permission.name=='用户授权'}">
+                                                    <c:if test="${permission.name=='用户修改'}">
                                                         <button>
                                                             <a href="${pageContext.request.contextPath}/HospitalController/hospitalDelete?id=${hospital.id}">删除</a>
                                                         </button>

@@ -86,7 +86,7 @@
                 </a>
             </td>
             <td id="yuyue">
-                <a href="${pageContext.request.contextPath}/AdminController/login?id=${result.id}">
+                <a href="${pageContext.request.contextPath}/PermissionController/administratorlogin?id=${result.id}">
                     <button id="btn-login">
                         管理员入口
                     </button>
@@ -101,6 +101,9 @@
             </td>
         </tr>
     </table>
+</div>
+<div>
+    ${error}
 </div>
 
 <div style="text-align: center">
