@@ -34,4 +34,11 @@ public class AdminServiceImpl implements AdminService {
         int result = adminMapper.doTel(customer);
         return result>0;
     }
+
+    @Override
+    public Admin selectAdmin(Integer adminId) {
+        //调用mapper层中方法
+        Admin admin = adminMapper.selectAdmin(adminId);
+        return admin;
+    }
 }

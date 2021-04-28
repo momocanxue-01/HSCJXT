@@ -50,10 +50,10 @@
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li class="menu-list"><a href="${pageContext.request.contextPath}/AdminController/login"><i class="fa fa-laptop"></i> <span>门诊管理</span></a></li>
+                <li class="menu-list"><a href="${pageContext.request.contextPath}/HospitalController/hospitalIndex01?id=${result.id}"><i class="fa fa-laptop"></i> <span>门诊管理</span></a></li>
 
                 <c:forEach items="${list}" var="permission" varStatus="i">
-                    <c:if test="${permission.name=='用户授权'}">
+                    <c:if test="${permission.name=='用户修改'}">
                         <li><a href="${pageContext.request.contextPath}/HospitalController/addhospital"><i class="fa fa-home"></i> <span>添加医院</span></a></li>
                     </c:if>
                 </c:forEach>
@@ -62,7 +62,7 @@
 
                 <li><a href="${pageContext.request.contextPath}/newscontroller/newsshow"><i class="fa fa-bullhorn"></i> <span>新闻中心</span></a></li>
 
-                <li class="menu-list"><a href=""><i class="fa fa-envelope"></i> <span>意见反馈</span></a></li>
+                <li class="menu-list"><a href="${pageContext.request.contextPath}/newscontroller/ckeDitor?adminId=${result.id}"><i class="fa fa-envelope"></i> <span>意见反馈</span></a></li>
 
                 <li class="menu-list"><a href="${pageContext.request.contextPath}/PermissionController/checkPermission?adminId=${result.id}"><i class="fa fa-envelope"></i> <span>返回主页</span></a></li>
             </ul>
@@ -111,7 +111,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach items="${hospital}" var="hospital" varStatus="j">
+                                    <c:forEach items="${hp.pageList}" var="hospital" varStatus="j">
                                     <tr class="gradeX">
                                         <td>${hospital.province}</td>
                                         <td>${hospital.city}</td>
@@ -126,18 +126,28 @@
                                                         <button>
                                                             <a href="${pageContext.request.contextPath}/HospitalController/hospitalDelete?id=${hospital.id}">删除</a>
                                                         </button>
-
-
                                                     </c:if>
                                                 </c:forEach>
-
                                         </td>
                                     </tr>
                                     </c:forEach>
-
-
                                     </tbody>
                                 </table>
+                            <%--开始加入分页相关内容--%>
+                            当前第${hp.currentPage}页，共${hp.totalPage}页
+                            <%--上一页超链接--%>
+                            <c:if test="${hp.currentPage gt 1}">
+                                <a href="${pageContext.request.contextPath}/HospitalController/hospitalPaging?currentPage=${hp.currentPage - 1}">上一页</a>
+                            </c:if>
+
+                            <%--每页页码连接--%>
+                            <c:forEach begin="1" end="${hp.totalPage}" step="1" var="i">
+                                <a href="${pageContext.request.contextPath}/HospitalController/hospitalPaging?currentPage=${i}">${i}</a>
+                            </c:forEach>
+                            <%--下一页超链接--%>
+                            <c:if test="${hp.currentPage lt hp.totalPage}">
+                                <a href="${pageContext.request.contextPath}/HospitalController/hospitalPaging?currentPage=${hp.currentPage + 1}">下一页</a>
+                            </c:if>
                         </div>
                     </section>
                 </div>

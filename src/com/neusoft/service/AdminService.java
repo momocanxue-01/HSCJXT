@@ -21,4 +21,6 @@ public interface AdminService {
     //将手机号添加为登录账号
     boolean doTel(Customer customer);
 
+    Admin selectAdmin(Integer adminId);
+
 }

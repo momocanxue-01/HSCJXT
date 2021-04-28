@@ -23,7 +23,7 @@ public interface CustomerMapper {
     @Insert("insert into customer values(default, #{name}, #{score}, #{cfrom}, #{tel}, #{radio},#{date})")
     int inesertCustomer(Customer customer);
 
-
+    @Delete("delete from customer where customer_id =#{id}")
     int deleteCustomer(int id);
 
 }

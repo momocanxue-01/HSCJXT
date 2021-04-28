@@ -22,4 +22,8 @@ public interface AdminMapper {
 
     @Insert("insert into admin values(default, #{tel}, #{password})")
     int doTel(Customer customer);
+
+    @Select("select admin_account account from admin where admin_id = #{adminId}")
+    Admin selectAdmin(Integer adminId);
+
 }

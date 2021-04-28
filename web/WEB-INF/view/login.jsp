@@ -51,6 +51,10 @@
             font-size: 20px;
 
         }
+        #error{
+            font-size: 18px;
+            background-color: red;
+        }
 
 
     </style>
@@ -72,7 +76,7 @@
     <table>
         <tr id="btn-login2">
             <td id="yuyue">
-                <a href="${pageContext.request.contextPath}/AdminController/login?id=${result.id}">
+                <a href="${pageContext.request.contextPath}/HospitalController/hospitalIndex01">
                     <button id="btn-login" title="">
                         预约
                     </button>
@@ -93,19 +97,16 @@
                 </a>
             </td>
             <td id="yuyue">
-                <a href="#">
+                <a href="${pageContext.request.contextPath}/entry.jsp">
                     <button id="btn-login">
-                        反馈意见
+                        退出登录
                     </button>
                 </a>
             </td>
         </tr>
     </table>
 </div>
-<div>
-    ${error}
-</div>
-
+<p id="error">${error}</p>
 <div style="text-align: center">
     <p id="pp">吉林工程技术师范学院Java工作室项目</p>
 </div>

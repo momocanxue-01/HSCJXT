@@ -36,7 +36,7 @@
     <script src="${pageContext.request.contextPath}/js/test.js"></script>
 
     <script>
-        //这是时间的选择面板
+        //这是时间的选择面板的方法
         $(function() {
             $('#form1').hide();
             var picker1 = $('#datetimepicker1').datetimepicker({
@@ -46,22 +46,29 @@
                 //minDate: '2016-7-1'
             });
         });
-
         $('#datetimepicker1').datetimepicker({
             format: 'YYYY-MM-DD HH',
-
             locale: moment.locale('zh-cn'),
-
         });
 
-        function getDateFunction() {
-            var date1 = $('#date').val();
-            //var date2 = document.getElementById("date");
-            document.getElementById("date1").innerHTML = date1;
-            //document.getElementById("date2").innerHTML = date2;
-        }
 
     </script>
+    <style>
+        .user-agreement{
+            padding-top: 5px;
+            margin-left: 1%;
+            color: blue;
+
+        }
+        .checkbox{
+            padding-left: 630px;
+            padding-top: -100px;
+
+        }
+        .login-wrap{
+            height: 540px;
+        }
+    </style>
 
 </head>
 
@@ -78,24 +85,26 @@
 
         <div class="login-wrap">
             <p>请在下面注册您的账号</p>
+            <%--医院序号--%>
             <input type="text" autofocus=""  class="form-control" value="${result.id}" name="id" readonly>
+            <%--医院名称--%>
             <input type="text" autofocus=""  class="form-control" value="${name}" name="cfrom" readonly>
-            <input type="text" autofocus=""  class="form-control" placeholder="请输入姓名" name="name">
+            <input type="text" autofocus="" id="name"  class="form-control" placeholder="请输入姓名" name="name"><span id="name01"></span>
             <input type="text" autofocus=""  class="form-control" placeholder="请输入性别" name="radio">
             <input type="text" autofocus=""  class="form-control" placeholder="请输入身份证" name="score" >
             <input type="text" autofocus=""  class="form-control" placeholder="请输入电话号码" name="tel" >
-            <input type="text" class="timeInput form-control" placeholder="请选择预约时间" name="date" id="datetimepicker1" />-
-            <label class="checkbox">
-                <input type="checkbox" value="agree this condition"> 我已阅读并同意遵守
-            </label>
-            <button type="submit" class="btn btn-lg btn-login btn-block">预约
+            <input type="text" class="timeInput form-control" name="date" id="datetimepicker1" />
+
+            <button id="submit" type="submit" class="btn btn-lg btn-login btn-block">预约
                 <%--<i class="fa fa-check"></i>--%>
             </button>
-
-
         </div>
-
+        <label class="checkbox">
+            <input type="checkbox"> 我已阅读并同意遵守
+        </label>
+        <p class="user-agreement">《用户协议及隐私条款》</p>
     </form>
+
 
 </div>
 

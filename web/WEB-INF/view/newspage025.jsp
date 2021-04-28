@@ -52,10 +52,10 @@
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li class="menu-list"><a href="${pageContext.request.contextPath}/AdminController/login"><i class="fa fa-laptop"></i> <span>门诊管理</span></a></li>
+                <li class="menu-list"><a href="${pageContext.request.contextPath}/HospitalController/hospitalIndex01?id=${result.id}"><i class="fa fa-laptop"></i> <span>门诊管理</span></a></li>
 
                 <c:forEach items="${list}" var="permission" varStatus="i">
-                    <c:if test="${permission.name=='用户授权'}">
+                    <c:if test="${permission.name=='用户修改'}">
                         <li><a href="${pageContext.request.contextPath}/HospitalController/addhospital"><i class="fa fa-home"></i> <span>添加医院</span></a></li>
                     </c:if>
                 </c:forEach>
@@ -119,25 +119,39 @@
                                 <table  class="display table table-bordered table-striped" id="dynamic-table">
                                     <thead>
                                     <tr>
-                                        <th>序号</th>
                                         <th>姓名</th>
                                         <th>性别</th>
                                         <th class="hidden-phone">医院</th>
                                         <th>身份证号</th>
                                         <th class="hidden-phone">电话</th>
                                         <th class="hidden-phone">预约时间</th>
+                                        <c:forEach items="${list}" var="permission" varStatus="i">
+                                            <c:if test="${permission.name=='用户修改'}">
+                                                <th class="hidden-phone">编辑</th>
+                                            </c:if>
+                                        </c:forEach>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <c:forEach items="${cp.pageList}" var="customer" varStatus="i">
                                         <tr>
-                                            <td>${customer.id}</td>
                                             <td>${customer.name}</td>
                                             <td>${customer.radio}</td>
                                             <td>${customer.cfrom}</td>
                                             <td>${customer.score}</td>
                                             <td>${customer.tel}</td>
                                             <td>${customer.formateTime(customer.date)} </td>
+                                            <%--排队信息的鉴权，如果是管理员则能删除用户--%>
+                                             <c:forEach items="${list}" var="permission" varStatus="i">
+                                                 <c:if test="${permission.name=='用户修改'}">
+                                                    <td>
+                                                       <button>
+                                                          <a href="${pageContext.request.contextPath}/CustomerController/deleteCustomer?id=${customer.id}">删除</a>
+                                                        </button>
+                                                    </td>
+                                                 </c:if>
+                                             </c:forEach>
+
                                         </tr>
                                     </c:forEach>
                                     </tbody>

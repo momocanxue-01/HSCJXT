@@ -28,16 +28,24 @@ public class CustomerServiceImpl implements CustomerService {
         return false;
     }
 
+    /**
+     * 管理员删除用户
+     * @param id 通过id进行删除
+     * @return 删除用户的结果
+     */
     @Override
     public int deleteCustomer(int id) {
         return customerMapper.deleteCustomer(id);
     }
 
+    /**
+     * 用户排队信息的全查询
+     * @return 全查询的结果
+     */
     @Override
     public List<Customer> selectCustomer() {
         //这个！！！！！！！！
         //调用mapper层中全查询方法完成具体查询功能
-        System.out.println("这里是Service" + customerMapper.selectCustomer());
         return customerMapper.selectCustomer();
     }
 

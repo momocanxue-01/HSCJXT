@@ -27,8 +27,9 @@ public class CustomerController {
     CustomerService customerService;
 
 
+    //分页查询
     @RequestMapping("/goIndex")
-    public ModelAndView goIndex(Customer customer ,ModelAndView mav){
+    public ModelAndView goIndex(Customer customer ,ModelAndView mav) {
 //        //1.调用业务层方法完成全查询功能
 //        List<Customer> customers = customerService.selectCustomer();
 //        //2.将查询到的集合发送到首页中展示
@@ -37,25 +38,20 @@ public class CustomerController {
 //        //3.返回mav对象即可
 //        System.out.println("返回集合" + customers);
 
-
-        //接收newspage024.jsp画面传递来的参数 添加数据库
         boolean result = customerService.inesertCustomer(customer);
-        if (result == true ){
-            System.out.println("添加成功");
-        }
+        //接收newspage024.jsp画面传递来的参数 添加数据库
 
         //由于开启分页查询，所以跳转到首页后不可以在进行全查询
         //1.调用业务层中分页查询方法完成分页查询
-           CustomerPage cp = customerService.selectCustomerByPage(1,CustomerPage.PAGE_COUNT);
-           //2.将cp对象打包
-        System.out.println(cp);
-            mav.addObject("cp",cp);
-            mav.setViewName("newspage025");
-            return mav;
-        }
+        CustomerPage cp = customerService.selectCustomerByPage(1, CustomerPage.PAGE_COUNT);
+        //2.将cp对象打包
+        mav.addObject("cp", cp);
+        mav.setViewName("newspage025");
+        return mav;
+    }
 
 
-        @RequestMapping("/doCustomerPaging")
+    @RequestMapping("/doCustomerPaging")
      public String doCustomerPaging(int currentPage, Model model){
         //专门用于分页查询的方法
         // 接取画面传递的参数-->当前页码，画面显示参数
@@ -68,7 +64,14 @@ public class CustomerController {
 
      }
 
-        @RequestMapping("yuyueselect")
+    /**
+     * 将医院序号和医院名称发送到预约页面
+     * @param id 医院序号
+     * @param name 医院名称
+     * @param model
+     * @return 预约页面
+     */
+      @RequestMapping("yuyueselect")
       public String yuyueselect(Long id, String name,Model model){
 //            System.out.println(id);
 //            System.out.println(name);
@@ -78,22 +81,28 @@ public class CustomerController {
       }
 
 
+      @RequestMapping("/goIndex01")
+      public ModelAndView goIndex01(HttpSession session,Customer customer , ModelAndView mav){
 
 
-    @RequestMapping("/goIndex01")
-    public ModelAndView goIndex01(HttpSession session,Customer customer , ModelAndView mav){
+          //由于开启分页查询，所以跳转到首页后不可以在进行全查询
+          //1.调用业务层中分页查询方法完成分页查询
+          CustomerPage cp = customerService.selectCustomerByPage(1,CustomerPage.PAGE_COUNT);
+          System.out.println(cp.getPageList().size());
+          //2.将cp对象打包
+          mav.addObject("cp",cp);
+          mav.setViewName("newspage025");
+          session.setAttribute("cp",cp);
+          return mav;
+      }
 
+      @RequestMapping("/deleteCustomer")
+      public String deleteCustomer(int id,Model model){
+          //调用业务层删除用户的方法
+          customerService.deleteCustomer(id);
 
-        //由于开启分页查询，所以跳转到首页后不可以在进行全查询
-        //1.调用业务层中分页查询方法完成分页查询
-        CustomerPage cp = customerService.selectCustomerByPage(1,CustomerPage.PAGE_COUNT);
-        System.out.println(cp.getPageList().size());
-        //2.将cp对象打包
-        mav.addObject("cp",cp);
-        mav.setViewName("newspage025");
-        session.setAttribute("cp",cp);
-        return mav;
-    }
+          return "redirect:/CustomerController/goIndex01";
+      }
 
 
 }

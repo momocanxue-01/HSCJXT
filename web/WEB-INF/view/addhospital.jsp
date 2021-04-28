@@ -50,7 +50,7 @@
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li class="menu-list"><a href="${pageContext.request.contextPath}/AdminController/login?id=${result.id}"><i class="fa fa-laptop"></i> <span>门诊管理</span></a></li>
+                <li class="menu-list"><a href="${pageContext.request.contextPath}/HospitalController/hospitalIndex01"><i class="fa fa-laptop"></i> <span>门诊管理</span></a></li>
 
                 <li><a href="${pageContext.request.contextPath}/HospitalController/addhospital"><i class="fa fa-home"></i> <span>添加医院</span></a></li>
 
@@ -84,7 +84,7 @@
 
             </div>
 
-            <form action="${pageContext.request.contextPath}/HospitalController/hospitalInsert" method="post">
+            <form action="${pageContext.request.contextPath}/HospitalController/hospitalIndex" method="post">
                 <input type="text" name="province" placeholder="请输入省份">
                 <input type="text" name="city" placeholder="请输入城市">
                 <input type="text" name="name" placeholder="请输入医院名称">
